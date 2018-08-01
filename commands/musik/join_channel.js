@@ -44,10 +44,10 @@ class JoinCommand extends cmd.Command
             if(!message.guild.voiceConnection){
                 message.member.voiceChannel.join()
                 .then(connection =>{
-                    var server = servers[message.guild.id]
+              //      var server = servers[message.guild.id]
                     message.channel.send("`Erfolgreich beigetreten!`");
-                    server.queue.push(args);
-                    Play(connection, message);
+                //    server.queue.push(args);
+                //    Play(connection, message);
                 })
             }
         }
