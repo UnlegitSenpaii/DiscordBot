@@ -7,6 +7,8 @@ bot.registry.registerGroup("simple", "Simple");
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname+ "/commands");
 
+global.servers = {};
+
 
 bot.on("message", function(message){
     //chatfilter
