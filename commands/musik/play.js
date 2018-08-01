@@ -33,7 +33,7 @@ class PlayCommand extends cmd.Command
     
         let connection = await message.member.voiceChannel.join();
     
-        let dispatcher = await connection.play(ytdl(args[0], {filter: "audioonly"}));
+        let dispatcher = await connection.playStream(ytdl(args[0], {filter: "audioonly"}));
     
         message.channel.send("Spiele: ${info.title}");
     }   
