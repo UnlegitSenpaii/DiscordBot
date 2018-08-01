@@ -38,8 +38,8 @@ bot.on("message", function(message){
     }
     //chatfilter end
     //Events
-    if(!userData[message.author.id + message.guild.id])//schaut ob der user vorhanden ist
-    userData[message.author.id + message.guild.id] = {}
+    if(!userData[message.author.id + message.guild])//schaut ob der user vorhanden ist
+    userData[message.author.id + message.guild] = {}
     if(!userData[message.author.id + message.guild.id].money)//das selbe bloß schaut der ob der geld hat wenn nicht dann gibt der dem 1k
     userData[message.author.id + message.guild.id].money = 1000;//start money
 
