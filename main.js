@@ -62,5 +62,5 @@ bot.on("ready", function(){
 
 
 
-4
+
 bot.login(process.env.BOT_TOKEN);   //immer auf der letzten zeile!
