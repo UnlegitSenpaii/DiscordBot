@@ -30,11 +30,14 @@ class JoinCommand extends cmd.Command
           name: "join",
           group: "musik",
           memberName: "join",
-          description: "Tritt deinem Voicechannel bei!"
+          description: "Tritt dem Voicechannel bei und spielt Musik! - URL bitte hinten hinschreiben"
        });
     }
     async run(message, args)
     {
+
+
+
         if(message.member.voiceChannel)
         {
             if(!servers[message.guild.id])
