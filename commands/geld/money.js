@@ -19,7 +19,7 @@ class MoneyCommand extends cmd.Command
     {
      message.channel.send({"embed":{
         title:"Bank",
-        color: OxF1C40F,
+        color: "OxF1C40F",
         fields:[{
             name:"Konto Inhaber",
             value:message.author.username,
