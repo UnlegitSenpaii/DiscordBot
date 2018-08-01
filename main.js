@@ -3,9 +3,8 @@ const bot = new cmd.Client();
 const discord = require("discord.js");
 const fs = require("fs");
 
-
 let userData = JSON.parse(fs.readFileSync("Storage/userData.json", "utf8"));
-
+global.usersdata = userData;
 bot.registry.registerGroup("musik", "Musik");
 bot.registry.registerGroup("simple", "Simple");
 bot.registry.registerGroup("geld", "Geld");

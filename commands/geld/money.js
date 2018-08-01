@@ -1,7 +1,6 @@
 const fs = require("fs");
 const cmd = require("discord.js-commando");
 
-let userData = JSON.parse(fs.readFileSync(__dirname+"Storage/userData.json", "utf8"));
 
 
 class MoneyCommand extends cmd.Command
@@ -13,7 +12,7 @@ class MoneyCommand extends cmd.Command
           name: "geld",
           group: "geld",
           memberName: "geld",
-          description: "Schau nach wieviel geld du hast c;!"
+          description: "Schau nach wie viel Geld du hast c;!"
        });
     }
     async run(message, args)
@@ -27,7 +26,7 @@ class MoneyCommand extends cmd.Command
             inline:true
         },{
             name:"Konto Saldo",
-            value:userData[message.author.id + message.guild.id].money,
+            value:usersdata[message.author.id + message.guild.id].money,
             inline:true
         }]
 
