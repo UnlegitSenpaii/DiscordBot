@@ -39,6 +39,20 @@ bot.on("ready", function(){
     console.log("------------------------------------------------------------");
     console.log("                       Bot started!");
     console.log("------------------------------------------------------------");
+    let statuses = [
+        "OwO",
+        "Nur bei Gaming EV!",
+        "Creator:⎛⎝Senpaii Satanist⎠⎞#1633"
+    ]
+
+    //message.member.roles.find("name","Neko")
+    setInterval(function() {
+        let status = statuses[Math.floor(Math.random() * statuses.length)]
+        bot.user.setActivity(status);
+
+    }, 10000)
+    bot.user.setStatus("Online")
+
 });
 
 
