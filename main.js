@@ -16,8 +16,7 @@ bot.on("message", function(message){
         "schlampe",
         "wichser",
         "wixxer",
-        "wixer",
-        ""
+        "wixer"
     ];
     var foundbadword = false;
 
