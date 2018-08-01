@@ -1,5 +1,5 @@
 const ytdl = require("ytdl-core");
-const cmd = require("discord.js-commando.js")
+const cmd = require("discord.js-commando");
 
 class PlayCommand extends cmd.Command
 {
