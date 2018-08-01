@@ -28,6 +28,7 @@ bot.on("message", function(message){
     {
         message.delete();//löschen von dem bösen wort c;
         message.author.send(`Bitte achte auf deine Wortwahl!`);
+        console.log("deleted message " + message.content + " in " + message.channel.name + " by " + message.author)
     }
 
 
@@ -35,8 +36,9 @@ bot.on("message", function(message){
 
 
 bot.on("ready", function(){
-
-
+    console.log("------------------------------------------------------------");
+    console.log("                       Bot started!");
+    console.log("------------------------------------------------------------");
 });
 
 
