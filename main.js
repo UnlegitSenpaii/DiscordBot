@@ -5,7 +5,7 @@ const discord = require("discord.js");
 bot.registry.registerGroup("musik", "Musik");
 bot.registry.registerGroup("simple", "Simple");
 
-bot.registerCommandsIn(__dirname + "/commands");
+bot.registry.registerCommandsIn(__dirname+ "/commands");
 
 
 bot.on("message", function(message){
