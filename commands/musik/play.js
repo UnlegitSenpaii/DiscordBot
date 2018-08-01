@@ -13,7 +13,7 @@ class PlayCommand extends cmd.Command
           description: "Spielt Musik - nur youtube links!"
        });
     }
-    async run(client, message, args, ops)
+    async run(message, args, ops)
     {
         if(!message.member.voiceChannel)
         message.channel.send("`Du musst in einem Voicechannel sein um diesen Befehl zuu benützen`");
