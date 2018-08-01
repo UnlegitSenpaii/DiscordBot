@@ -17,7 +17,7 @@ class LeaveCommand extends cmd.Command
         if(message.guild.voiceConnection)
         {
             message.guild.voiceConnection.disconnect()
-            .then(message.channel.send("`Erfolgreich verlassen!`"))
+            message.channel.send("`Erfolgreich verlassen!`");
         }
         else 
         {
