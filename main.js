@@ -1,9 +1,14 @@
 const cmd = require("discord.js-commando");
 const bot = new cmd.Client();
 const discord = require("discord.js");
+const fs = require("fs");
+
+
+let userData = JSON.prase(fs.readFileSync("Storage/userData.json", "utf8"));
 
 bot.registry.registerGroup("musik", "Musik");
 bot.registry.registerGroup("simple", "Simple");
+bot.registry.registerGroup("geld", "Geld");
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname+ "/commands");
 
@@ -32,6 +37,17 @@ bot.on("message", function(message){
         message.author.send(`Bitte achte auf deine Wortwahl!`);
         console.log("deleted message " + message.content + " in " + message.channel.name + " by " + message.author)
     }
+    //chatfilter end
+    //Events
+    if(!userData[message.author.id + message.guild.id])//schaut ob der user vorhanden ist
+    userData[message.author.id + message.guild.id] = {}
+    if(!userData[message.author.id + message.guild.id].money)//das selbe bloß schaut der ob der geld hat wenn nicht dann gibt der dem 1k
+    userData[message.author.id + message.guild.id].money = 1000;//start money
+
+    fs.writeFile("Storage/userData.json", JSON.stringify(userData), (err)=>{
+        if(err)
+        console.log("An error accured while trying to add a User to userData!")
+    });
 
 
 });
