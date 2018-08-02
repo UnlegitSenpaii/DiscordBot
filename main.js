@@ -5,8 +5,7 @@ const fs = require("fs");
 const moment = require("moment");
 
 
-let userData = JSON.parse(fs.readFileSync("Storage/userData.json", "utf8"));
-global.usersdata = userData;
+//let userData = JSON.parse(fs.readFileSync("Storage/userData.json", "utf8"));
 bot.registry.registerGroup("musik", "Musik");
 bot.registry.registerGroup("simple", "Simple");
 bot.registry.registerGroup("geld", "Geld");
@@ -43,7 +42,7 @@ bot.on("message", function(message){
     //chatfilter end
     //Events
     let userData = JSON.parse(fs.readFileSync("Storage/userData.json", "utf8"));
-
+    global.usersdata = userData;
     if(!userData[message.author + message.guild])//schaut ob der user vorhanden ist
     userData[message.author + message.guild] = {}
     if(!userData[message.author + message.guild].money)//das selbe bloß schaut der ob der geld hat wenn nicht dann gibt der dem 1k
