@@ -24,7 +24,7 @@ class DailyCommand extends cmd.Command
             usersdata[message.author + message.guild].money += 500;
             var daily = new discord.RichEmbed()
             .setTitle("Tägliche Belohnung")
-            .addField("Du hast 500€ zu deinem Konto hinzugefügt bekommen!", " ", true)
+            .addField("Du hast 500€ zu deinem Konto hinzugefügt bekommen!", "...", true)
             .setColor(0x73B2D9)
             .setTimestamp()
             message.channel.send(daily);
