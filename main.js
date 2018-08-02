@@ -46,7 +46,7 @@ bot.on("message", function(message){
     if(!userData[message.author + message.guild])//schaut ob der user vorhanden ist
     userData[message.author + message.guild] = {}
     if(!userData[message.author + message.guild].money)//das selbe bloß schaut der ob der geld hat wenn nicht dann gibt der dem 1k
-    userData[message.author + message.guild].money = 1000;//start money
+    userData[message.author + message.guild].money = 1000;//start geld
     if(!userData[message.author + message.guild].lastDaily)
     userData[message.author + message.guild].lastDaily = "Not Collected"
     fs.writeFile("Storage/userData.json", JSON.stringify(userData), (err)=>{
