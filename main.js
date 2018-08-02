@@ -12,8 +12,8 @@ bot.registry.registerGroup("geld", "Geld");
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname+ "/commands");
 
+global.disablechat = false;
 global.servers = {};
-
 
 bot.on("message", function(message){
 
@@ -44,16 +44,15 @@ bot.on("message", function(message){
         foundbadword = true;
     }
     if (foundbadword)
-    {
+    { 
         message.delete();//löschen von dem bösen wort c;
         message.author.send(`Bitte achte auf deine Wortwahl!`);
-        console.log("deleted message " + message.content + " in " + message.channel.name + " by " + message.author)
+        console.log("deleted message " + message.content + " in " + message.channel.name + " by " + message.author);       
     }
     //chatfilter end
     //Events
     let userData = JSON.parse(fs.readFileSync("Storage/userData.json", "utf8"));
     global.usersdata = userData;
-    global.disablechat = false;
     if(!userData[message.author + message.guild])//schaut ob der user vorhanden ist
     userData[message.author + message.guild] = {}
     if(!userData[message.author + message.guild].money)//das selbe bloß schaut der ob der geld hat wenn nicht dann gibt der dem 1k
