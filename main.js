@@ -52,9 +52,6 @@ bot.on("message", function(message){
         console.log("An error accured while trying to add a User to userData!")
     });
 
-    var amount = Math.floor(Math.random() * 15);
-
-    userData[message.author + message.guild].money = userData[message.author + message.guild].money + amount;
 
 });
 
