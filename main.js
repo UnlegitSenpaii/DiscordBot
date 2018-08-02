@@ -4,8 +4,9 @@ const discord = require("discord.js");
 const fs = require("fs");
 const moment = require("moment");
 
+let userData = JSON.parse(fs.readFileSync("Storage/userData.json", "utf8"));
+global.usersdata = userData;
 
-//let userData = JSON.parse(fs.readFileSync("Storage/userData.json", "utf8"));
 bot.registry.registerGroup("musik", "Musik");
 bot.registry.registerGroup("simple", "Simple");
 bot.registry.registerGroup("geld", "Geld");
@@ -42,7 +43,6 @@ bot.on("message", function(message){
     //chatfilter end
     //Events
     let userData = JSON.parse(fs.readFileSync("Storage/userData.json", "utf8"));
-    global.usersdata = userData;
     if(!userData[message.author + message.guild])//schaut ob der user vorhanden ist
     userData[message.author + message.guild] = {}
     if(!userData[message.author + message.guild].money)//das selbe bloß schaut der ob der geld hat wenn nicht dann gibt der dem 1k
@@ -53,7 +53,28 @@ bot.on("message", function(message){
         if(err)
         console.log("An error accured while trying to add a User to userData!")
     });
-
+    if (message.content == "!täglich")
+    {
+        if(userData[message.author + message.guild].lastDaily != moment().format("L"))
+        {
+            userData[message.author + message.guild].lastDaily = moment().format("L");
+            userData[message.author + message.guild].money += 500;
+            var daily = new discord.RichEmbed()
+            .setTitle("Tägliche Belohnung")
+            .addField("Du hast 500€ zu deinem Konto hinzugefügt bekommen!", "...", true)
+            .setColor(0x73B2D9)
+            .setTimestamp()
+            message.channel.send(daily);
+        }
+        else
+        {
+            var dailyfailed = new discord.RichEmbed()
+            .setTitle("Tägliche Belohnung")
+            .addField("Du hast deine tägliche Belohnung eingesammelt!", "Du musst noch " + moment().endOf("day").fromNow() + ".", true)
+            .setColor(0xFF0000)
+            message.channel.send(dailyfailed)
+        }
+    }
 
 });
 
@@ -77,8 +98,6 @@ bot.on("ready", function(){
     bot.user.setStatus("Online")
 
 });
-
-
 
 
 
