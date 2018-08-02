@@ -26,7 +26,7 @@ class MoneyCommand extends cmd.Command
             inline:true
         },{
             name:"Konto Saldo",
-            value:usersdata[message.author.id + message.guild.id].money,
+            value:usersdata[message.author + message.guild].money,
             inline:true
         }]
 
