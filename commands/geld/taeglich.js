@@ -26,7 +26,7 @@ class DailyCommand extends cmd.Command
             .setTitle("Tägliche Belohnung")
             .addField("Du hast 500€ zu deinem Konto hinzugefügt bekommen!", " ", true)
             .setColor(0x73B2D9)
-            .setTimestamp();
+            .setTimestamp()
             message.channel.send(daily);
         }
         else
@@ -35,6 +35,7 @@ class DailyCommand extends cmd.Command
             .setTitle("Tägliche Belohnung")
             .addField("Du hast deine tägliche Belohnung eingesammelt!", "Du musst noch " + moment().endOf("day").fromNow() + ".", true)
             .setColor(0xFF0000)
+            message.channel.send(dailyfailed)
         }
 
 
