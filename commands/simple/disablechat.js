@@ -27,8 +27,9 @@ class DisableChatCommand extends cmd.Command
             {
                 if(message.author == "<@223876496291266560>")
                 return;
-            message.delete();
-            message.author.send("`Der Chat ist zurzeit deaktiviert :wheelchair: !`")
+
+                message.delete();
+                message.author.send("`Der Chat ist zurzeit deaktiviert :wheelchair: !`")
             }
     }
     }
