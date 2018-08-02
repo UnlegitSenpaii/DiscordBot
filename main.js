@@ -17,14 +17,6 @@ global.servers = {};
 
 bot.on("message", function(message){
 
-    if(disablechat == true){
-        if(!message.member.hasPermission("ADMINISTRATOR"))
-        {
-            message.delete();
-            message.author.send("`The Chat is currently disabled!`")
-        }
-    }
-
 
     if(bot.user == message.author)
     {return;}
@@ -84,6 +76,11 @@ bot.on("message", function(message){
             .setColor(0xFF0000)
             message.channel.send(dailyfailed)
         }
+    }
+    if(disablechat == true){
+            message.delete();
+            message.author.send("`The Chat is currently disabled!`")
+        
     }
 
 });
