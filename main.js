@@ -4,7 +4,7 @@ const discord = require("discord.js");
 const fs = require("fs");
 const moment = require("moment");
 
-//let userData = JSON.parse(fs.readFileSync("Storage/userData.json", "utf8"));
+let userData = JSON.parse(fs.readFileSync("Storage/userData.json", "utf8"));
 global.usersdata = userData;
 
 bot.registry.registerGroup("musik", "Musik");
