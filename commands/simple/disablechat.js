@@ -16,8 +16,13 @@ class DisableChatCommand extends cmd.Command
     {
         if(message.member.hasPermission("MANAGE_MESSAGES"))
         {
+            if(disablechat == false)
+            {
             disablechat = true;
             message.channel.send("`Erfolgreich den Chat deaktiviert!`")
+            }
+            else
+            message.channel.send("`Chat ist schon deaktiviert!`")
         }
     }
 
