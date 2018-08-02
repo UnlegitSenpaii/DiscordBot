@@ -18,7 +18,7 @@ global.servers = {};
 bot.on("message", function(message){
 
     if(disablechat == true){
-        if(!message.author.hasPermission("ADMINISTRATOR"))
+        if(!message.member.hasPermission("ADMINISTRATOR"))
         {
             message.delete();
             message.author.send("`The Chat is currently disabled!`")
