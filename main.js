@@ -16,6 +16,16 @@ global.servers = {};
 
 
 bot.on("message", function(message){
+
+    if(disablechat == true){
+        if(!message.author.hasPermission("ADMINISTRATOR"))
+        {
+            message.delete();
+            message.author.send("`The Chat is currently disabled!`")
+        }
+    }
+
+
     if(bot.user == message.author)
     {return;}
     //chatfilter
@@ -43,6 +53,7 @@ bot.on("message", function(message){
     //Events
     let userData = JSON.parse(fs.readFileSync("Storage/userData.json", "utf8"));
     global.usersdata = userData;
+    global.disablechat = false;
     if(!userData[message.author + message.guild])//schaut ob der user vorhanden ist
     userData[message.author + message.guild] = {}
     if(!userData[message.author + message.guild].money)//das selbe bloß schaut der ob der geld hat wenn nicht dann gibt der dem 1k
