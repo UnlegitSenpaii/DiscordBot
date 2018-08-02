@@ -14,13 +14,7 @@ class SkipCommand extends cmd.Command
     }
     async run(message, args)
     {
-        if(message.member.voiceChannel)
-        {
-            if(!servers[message.guild.id])
-            {
-                servers[message.guild.id] = {queue: []}
-            }
-        }
+        message.channel.send("`Nö`")
     }
 
 }
