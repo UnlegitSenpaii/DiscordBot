@@ -2,6 +2,8 @@ const cmd = require("discord.js-commando");
 const bot = new cmd.Client();
 const discord = require("discord.js");
 const fs = require("fs");
+const moment = require("moment");
+
 
 let userData = JSON.parse(fs.readFileSync("Storage/userData.json", "utf8"));
 global.usersdata = userData;
@@ -46,7 +48,8 @@ bot.on("message", function(message){
     userData[message.author + message.guild] = {}
     if(!userData[message.author + message.guild].money)//das selbe bloß schaut der ob der geld hat wenn nicht dann gibt der dem 1k
     userData[message.author + message.guild].money = 1000;//start money
-
+    if(!userData[message.author + message.guild].lastDaily)
+    userData[message.author + message.guild].lastDaily = "Not Collected"
     fs.writeFile("Storage/userData.json", JSON.stringify(userData), (err)=>{
         if(err)
         console.log("An error accured while trying to add a User to userData!")
