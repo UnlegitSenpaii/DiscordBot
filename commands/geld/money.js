@@ -1,5 +1,6 @@
 const fs = require("fs");
 const cmd = require("discord.js-commando");
+const discord = require("discord.js");
 
 
 
@@ -17,20 +18,15 @@ class MoneyCommand extends cmd.Command
     }
     async run(message, args)
     {
-     message.channel.send({"embed":{
-        title:"Bank",
-        color: "OxF1C40F",
-        fields:[{
-            name:"Konto Inhaber",
-            value:message.author.username,
-            inline:true
-        },{
-            name:"Konto Saldo",
-            value:usersdata[message.author + message.guild].money,
-            inline:true
-        }]
+        var bankinfo = new discord.RichEmbed()
+        .setColor(0x73B2D9)
+        .setTitle("Bank")
+        .addField("Konto Inhaber: ", message.author.username, true)
+        .addField("Konto Saldo: ", usersdata[message.author + message.guild].money, true)
+        .setTimestamp()
 
-     }})
+
+     message.channel.send(bankinfo)
     }
 
 }
