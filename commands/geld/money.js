@@ -25,8 +25,7 @@ class MoneyCommand extends cmd.Command
         .addField("Konto Saldo: ", usersdata[message.author + message.guild].money, true)
         .setTimestamp()
 
-
-     message.channel.send(bankinfo)
+        message.channel.send(bankinfo);
     }
 
 }

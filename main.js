@@ -15,6 +15,8 @@ global.servers = {};
 
 
 bot.on("message", function(message){
+    if(bot.user == message.author)
+    {return;}
     //chatfilter
         //liste der bösen wörtern   (immer klein schreiben!)
     let blacklisted = [
@@ -38,6 +40,9 @@ bot.on("message", function(message){
     }
     //chatfilter end
     //Events
+    let userData = JSON.parse(fs.readFileSync("Storage/userData.json", "utf8"));
+
+
     if(!userData[message.author + message.guild])//schaut ob der user vorhanden ist
     userData[message.author + message.guild] = {}
     if(!userData[message.author + message.guild].money)//das selbe bloß schaut der ob der geld hat wenn nicht dann gibt der dem 1k
