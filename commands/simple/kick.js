@@ -6,10 +6,10 @@ class KickCommand extends cmd.Command
     {
         super(client,{
 
-          name: "flip",
+          name: "kick",
           group: "simple",
-          memberName: "flip",
-          description: "Wirft eine Münze für dich!"
+          memberName: "kick",
+          description: "Kickt spieler lol, DEVELOPER ONLY COMMAND!"
        });
     }
     async run(message, args)
