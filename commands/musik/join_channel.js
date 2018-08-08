@@ -35,9 +35,6 @@ class JoinCommand extends cmd.Command
     }
     async run(message, args)
     {
-
-
-
         if(message.member.voiceChannel)
         {
             if(!servers[message.guild.id])
