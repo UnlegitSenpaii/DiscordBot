@@ -56,7 +56,7 @@ bot.on("message", function(message){
         console.log("An error accured while trying to add a User to userData!")
     });
     if (message.content == "!täglich")
-    {
+    {   //OWO
         if(userData[message.author + message.guild].lastDaily != moment().format("L"))
         {
             userData[message.author + message.guild].lastDaily = moment().format("L");
