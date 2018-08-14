@@ -12,14 +12,30 @@ bot.registry.registerGroup("geld", "Geld");
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname+ "/commands");
 
+global.messagesinceonline = 0;
+global.dailyreward = false;
 global.disablechat = false;
 global.servers = {};
+global.lastmessageuser;
+
+void randommath(count)
+{
+    var end = Math.floor(Math.random() * count);
+    return end;
+}
 
 bot.on("message", function(message){
-
-
     if(bot.user == message.author)
     {return;}
+    lastmessageuser == message.author.username
+    messagesinceonline++;// fügt eins zu messagessinceonline hinzu-> kann man gebrauchen für logs und so ein spaß c;
+    if(messagesinceonline == 100){
+        console.log("100 Messages were sent!");
+    }else if(messagesinceonline == 1000){
+        message.reply("Herzlichen Glückwunsch du bist die 1000 Nachricht die der Bot regestriert hat!");
+        console.log("1000 Messages were sent!");
+    }
+    
     //chatfilter
         //liste der bösen wörtern   (immer klein schreiben!)
     let blacklisted = [
@@ -27,7 +43,12 @@ bot.on("message", function(message){
         "schlampe",
         "wichser",
         "wixxer",
-        "wixer"
+        "wixer",
+        "arschloch",
+        "hure",
+        "mistgeburt",
+        "fehlgeburt",
+        "untermensch"
     ];
     var foundbadword = false;
 
@@ -55,26 +76,17 @@ bot.on("message", function(message){
         if(err)
         console.log("An error accured while trying to add a User to userData!")
     });
-    if (message.content == "!täglich")
+    if (daily)
     {   //OWO
         if(userData[message.author + message.guild].lastDaily != moment().format("L"))
         {
             userData[message.author + message.guild].lastDaily = moment().format("L");
             userData[message.author + message.guild].money += 500;
-            var daily = new discord.RichEmbed()
-            .setTitle("Tägliche Belohnung")
-            .addField("Du hast 500€ zu deinem Konto hinzugefügt bekommen!", "...", true)
-            .setColor(0x73B2D9)
-            .setTimestamp()
-            message.channel.send(daily);
+            dailyreward = true;
         }
         else
         {
-            var dailyfailed = new discord.RichEmbed()
-            .setTitle("Tägliche Belohnung")
-            .addField("Du hast deine tägliche Belohnung eingesammelt!", "Du musst noch " + moment().endOf("day").fromNow() + ".", true)
-            .setColor(0xFF0000)
-            message.channel.send(dailyfailed)
+            dailyreward = false
         }
     }
     if(disablechat == true){
@@ -82,9 +94,20 @@ bot.on("message", function(message){
             message.author.send("`The Chat is currently disabled!`")
         
     }
+    var chancewuff = Math.floor(Math.random() * 10);
 
+    if(chancewuff == 5)
+    {
+        var diffe = Math.floor(Math.random() * 3);
+        if(diffe == 1){
+            message.channel.send("`wuff wuff`");
+        }else if(diffe == 2){
+            message.channel.send("`kleff`");
+        }else{
+            message.channel.send("`kleff kleff`")
+        }
+    }
 });
-
 
 bot.on("ready", function(){
     console.log("------------------------------------------------------------");
@@ -95,19 +118,13 @@ bot.on("ready", function(){
         "Nur bei Gaming EV!",
         "Creator:⎛⎝Senpaii Satanist⎠⎞#1633"
     ]
-
-    //message.member.roles.find("name","Neko")
     setInterval(function() {
         let status = statuses[Math.floor(Math.random() * statuses.length)]
         bot.user.setActivity(status);
 
     }, 10000)
-    bot.user.setStatus("Online")
+    bot.user.setStatus("Online");
 
 });
-
-
-
-
 //process.env.BOT_TOKEN
 bot.login(process.env.BOT_TOKEN);   //immer auf der letzten zeile!
