@@ -18,7 +18,7 @@ class wuffCommand extends cmd.Command
             if(args == message.author){
                 message.channel.send("`Du kannst dich nicht selber anbellen!`");
             }else{
-            message.channel.send("`Wuff wuff" + args +"`")
+            message.channel.send("`Wuff wuff`" + args)
             }
         }else{
                 message.channel.send(args + "`wuff wuff`");
