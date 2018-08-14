@@ -15,13 +15,14 @@ class wuffCommand extends cmd.Command
     async run(message, args)
     {
         if(args[0]){
-            message.channel.send("`Wuff wuff")
-        }else{
             if(args == message.author){
                 message.channel.send("`Du kannst dich nicht selber anbellen!`");
             }else{
-                message.channel.send(args + "`wuff wuff`");
+            message.channel.send("`Wuff wuff" + args +"`")
             }
+        }else{
+                message.channel.send(args + "`wuff wuff`");
+            
         }
     }
 
