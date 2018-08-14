@@ -16,8 +16,8 @@ global.messagesinceonline = 0;
 global.dailyreward = false;
 global.disablechat = false;
 global.servers = {};
-global.lastmessageuser;
-global.lastmessage;
+global.lastmessageuser = 0;
+global.lastmessage = 0;
 
 
 bot.on("message", function(message){
