@@ -17,12 +17,8 @@ global.dailyreward = false;
 global.disablechat = false;
 global.servers = {};
 global.lastmessageuser;
+global.lastmessage;
 
-void randommath(count)
-{
-    var end = Math.floor(Math.random() * count);
-    return end;
-}
 
 bot.on("message", function(message){
     if(bot.user == message.author)
@@ -52,6 +48,11 @@ bot.on("message", function(message){
     ];
     var foundbadword = false;
 
+    if(lastmessage == message.content){
+        message.delete();
+        message.author.send("`Du wiederholst dich!`")
+    }
+
     for(var i in blacklisted){//nach bösen wörtern suchen c;
         if(message.content.toLowerCase().includes(blacklisted[i].toLowerCase()))
         foundbadword = true;
@@ -62,6 +63,8 @@ bot.on("message", function(message){
         message.author.send(`Bitte achte auf deine Wortwahl!`);
         console.log("deleted message " + message.content + " in " + message.channel.name + " by " + message.author);       
     }
+
+
     //chatfilter end
     //Events
     let userData = JSON.parse(fs.readFileSync("Storage/userData.json", "utf8"));
@@ -107,6 +110,7 @@ bot.on("message", function(message){
             message.channel.send("`kleff kleff`")
         }
     }
+    lastmessage = message.content;
 });
 
 bot.on("ready", function(){
