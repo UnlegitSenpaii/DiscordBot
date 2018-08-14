@@ -14,7 +14,7 @@ class nachrichtenCommand extends cmd.Command
     }
     async run(message, args)
     {
-        message.channel.send("`Ich habe schon " + messagesinceonline + "Nachrichten bekommen`");
+        message.channel.send("`Ich habe schon " + messagesinceonline + " Nachrichten bekommen`");
     }
 
 }
