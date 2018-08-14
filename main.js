@@ -23,7 +23,7 @@ global.lastmessage;
 bot.on("message", function(message){
     if(bot.user == message.author)
     {return;}
-    lastmessageuser == message.author.username
+    lastmessageuser = message.author.username;
     messagesinceonline++;// fügt eins zu messagessinceonline hinzu-> kann man gebrauchen für logs und so ein spaß c;
     if(messagesinceonline == 100){
         console.log("100 Messages were sent!");
