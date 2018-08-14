@@ -21,7 +21,7 @@ class wuffCommand extends cmd.Command
             message.channel.send("`Wuff wuff" + args +"`")
             }
         }else{
-                message.channel.send(args + "`wuff wuff`");
+                message.channel.send(args + "/tts wuff wuff");
             
         }
     }
