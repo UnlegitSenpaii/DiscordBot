@@ -15,6 +15,7 @@ bot.registry.registerCommandsIn(__dirname+ "/commands");
 global.messagesinceonline = 0;
 global.dailyreward = false;
 global.disablechat = false;
+global.daily = false;
 global.servers = {};
 global.lastmessageuser = 0;
 global.lastmessage = 0;

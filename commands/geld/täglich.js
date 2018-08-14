@@ -18,6 +18,7 @@ class täglichCommand extends cmd.Command
     }
     async run(message, args)
     {
+        daily = true;
         if(dailyreward == true)
         {
             var daily = new discord.RichEmbed()
@@ -25,7 +26,6 @@ class täglichCommand extends cmd.Command
             .setTitle("Bank")
             .addField("Du hast deine tägliche Belohnung abgeholt!", "In höhe von 500 GG", true)
             .setTimestamp()
-
             message.channel.send(daily);
         }else
         {
