@@ -122,7 +122,7 @@ bot.on("ready", function(){
         "OwO",
         "Nur bei Gaming EV!",
         "Creator:⎛⎝Senpaii Satanist⎠⎞#1633",
-        "Fortschritt durch Technologie!"
+        "Vorteil durch Technologie!"
     ]
     setInterval(function() {
         let status = statuses[Math.floor(Math.random() * statuses.length)]
