@@ -119,6 +119,11 @@ bot.on("message", function(message){
         var diffe = Math.floor(Math.random() * 3);
         if(diffe == 1){
             message.channel.send("`wuff wuff`");
+            var reee = Math.floor(Math.random() * 1337);
+                if(reee == 666){
+                    message.channel.send("`ALL YOU NORMIES GET OF OF MY DANG INTERNET!`")
+                    message.channel.send("`RRREEEEeeeEEEeeEEEEEEEEEEeeeeEEEEEEEeeeeEE`")
+                }
         }else if(diffe == 2){
             message.channel.send("`kleff`");
         }else{
@@ -140,9 +145,6 @@ bot.on("ready", function(){
     ]
     setInterval(function() {
         let status = statuses[Math.floor(Math.random() * statuses.length)]
-        if(status == 0 || status == 4){
-            status = 3;
-        }
         bot.user.setActivity(status);
     }, 10000)
     bot.user.setStatus("Online");
