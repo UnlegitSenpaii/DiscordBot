@@ -5,6 +5,7 @@ const fs = require("fs");
 const moment = require("moment");
 
 let userData = JSON.parse(fs.readFileSync("Storage/userData.json", "utf8"));
+let savedData = require("./Storage/savedData.json")
 
 bot.registry.registerGroup("musik", "Musik");
 bot.registry.registerGroup("simple", "Simple");
@@ -52,6 +53,12 @@ bot.on("message", function(message){
     if(lastmessage == message.content){
         message.delete();
         message.author.send("`Du wiederholst dich!`")
+        savedData[message.author] = {
+            message: message.content,
+            reason: "Wiederholung der Nachrichten",
+            channel: message.channel.name
+        }
+        fs.writeFile("./Storage/savedData.json", JSON.stringify(savedData, null, 4));
     }
 
     for(var i in blacklisted){//nach bösen wörtern suchen c;
@@ -62,7 +69,13 @@ bot.on("message", function(message){
     { 
         message.delete();//löschen von dem bösen wort c;
         message.author.send(`Bitte achte auf deine Wortwahl!`);
-        console.log("deleted message " + message.content + " in " + message.channel.name + " by " + message.author);       
+        console.log("deleted message " + message.content + " in " + message.channel.name + " by " + message.author);
+        savedData[message.author] = {
+            message: message.content,
+            reason: "Wortwahl",
+            channel: message.channel.name
+        }
+        fs.writeFile("./Storage/savedData.json", JSON.stringify(savedData, null, 4));
     }
 
 
@@ -98,6 +111,7 @@ bot.on("message", function(message){
             message.author.send("`The Chat is currently disabled!`")
         
     }
+
     var chancewuff = Math.floor(Math.random() * 10);
 
     if(chancewuff == 5)
@@ -126,8 +140,10 @@ bot.on("ready", function(){
     ]
     setInterval(function() {
         let status = statuses[Math.floor(Math.random() * statuses.length)]
+        if(status == 0 || status == 4){
+            status = 3;
+        }
         bot.user.setActivity(status);
-
     }, 10000)
     bot.user.setStatus("Online");
 
