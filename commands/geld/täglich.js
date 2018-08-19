@@ -26,7 +26,8 @@ class täglichCommand extends cmd.Command
             .addField("Du hast deine tägliche Belohnung abgeholt!", "In höhe von 500 GG", true)
             .setTimestamp()
             message.channel.send(daily);
-        }else
+        }
+        else
         {
             var dailyfalse = new discord.RichEmbed()
             .setColor(0x73B2D9)

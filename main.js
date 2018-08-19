@@ -16,7 +16,7 @@ bot.registry.registerCommandsIn(__dirname+ "/commands");
 global.messagesinceonline = 0;
 global.dailyreward = false;
 global.disablechat = false;
-global.daily = false;
+global.daily = true;
 global.servers = {};
 global.lastmessageuser = 0;
 global.lastmessage = 0;
@@ -97,12 +97,7 @@ bot.on("message", function(message){
     var income = Math.floor(Math.random() * 10000);
     userData[message.author + message.guild].money += income;
 
-
- 
-
-    if (daily)
-    {   //OWO
-        if(userData[message.author + message.guild].lastDaily != moment().format("LT"))
+      if(userData[message.author + message.guild].lastDaily != moment().format("LT"))
         {
             userData[message.author + message.guild].lastDaily = moment().format("LT");
             userData[message.author + message.guild].money += 500;
@@ -112,7 +107,8 @@ bot.on("message", function(message){
         {
             dailyreward = false
         }
-    }
+
+
     if(disablechat == true){
             message.delete();
             message.author.send("`The Chat is currently disabled!`")
@@ -138,6 +134,25 @@ bot.on("message", function(message){
         }
     }
     lastmessage = message.content;
+    if(dailyreward == true)
+        {
+            var daily = new discord.RichEmbed()
+            .setColor(0x73B2D9)
+            .setTitle("Bank")
+            .addField("Du hast deine tägliche Belohnung abgeholt!", "In höhe von 500 GG", true)
+            .setTimestamp()
+            message.channel.send(daily);
+        }
+        else
+        {
+            var dailyfalse = new discord.RichEmbed()
+            .setColor(0x73B2D9)
+            .setTitle("Bank")
+            .addField("Du hast deine tägliche Belohnung schon abgeholt!")
+            .setTimestamp()
+            message.channel.send(dailyfalse);
+
+        }
 });
 
 bot.on("ready", function(){
