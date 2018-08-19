@@ -135,22 +135,21 @@ bot.on("message", function(message){
     lastmessage = message.content;
     if(dailyreward == true)
         {
-            var daily = new discord.RichEmbed()
+ /*           var daily = new discord.RichEmbed()
             .setColor(0x73B2D9)
             .setTitle("Bank")
             .addField("Du hast deine tägliche Belohnung abgeholt!", "In höhe von 500 GG", true)
             .setTimestamp()
-            message.channel.send(daily);
+            message.channel.send(daily);*/
         }
         else
         {
-            var dailyfalse = new discord.RichEmbed()
+           /* var dailyfalse = new discord.RichEmbed()
             .setColor(0x73B2D9)
             .setTitle("Bank")
             .addField("Du hast deine tägliche Belohnung schon abgeholt!")
             .setTimestamp()
-            message.channel.send(dailyfalse);
-
+            message.channel.send(dailyfalse);*/
         }
 });
 
