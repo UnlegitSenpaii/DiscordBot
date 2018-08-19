@@ -1,0 +1,38 @@
+For those who are interested here is an tutorial for an enable/disable command:
+```css
+//this tutorial is based on DapperDinos Tutorials!
+//fist of all dont be mad that it isnt an video and you have to make things yourself not just copy and paste c;
+//yes it is really simple and stupid but nevermind some ppl maybe find it interesting
+        There are two ways of doing it with the args on or off or with the command !chaton or !chatoff im doing the !chaton/off command you can find out the one with the args on ur own c;
+So fist of all we have to make two new .js files in a group(like simple, ...)
+I have called them disable- and enablechat.js   
+
+so first like in all other new commands we copy the code out of another file like coinflip.js
+than you do the usual things in it
+
+so now that were ready we have to make an global variable in out main file called something like global.chatstatus = true;//keep it on true you'll see later
+
+still in the mainfile you go now to bot.on("message").. and put at the very top, if u havent already, if(message.author == bot.user) return;
+than somewhere where u feel comfortable put in the code: 
+if(chatstatus == false){
+    message.deleate();  //this deleates every message that is sent
+    and a message to the author c; you now how to make one c;;;
+}//part 1
+```
+```css
+so now we go back in out enable/disablechat.js file
+now u go down to the async run
+and put on enable chatstatus = true; and on disable chatstatus = false;  
+you can also add an message.member.hasPermission("MANAGE_MESSAGES") check if u want for example:
+if(message.member.hasPermission("MANAGE_MESSAGES")){
+    chatstatus = false;
+    message.channel.send("Chat has been disabled");
+    console.log("Chat has been disabled by: " +  message.author.username + "ID: " + message.author)
+}//and that on enable to and ure done!
+
+//yes im bored c;
+//dont reply with eeehh you could make the code simplier and shorter ... 
+//yes i now but i dont care and think about the newbies they need to understand the code .-.
+//rip my england
+//part 2
+``` 

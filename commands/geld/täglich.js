@@ -3,7 +3,6 @@ const cmd = require("discord.js-commando");
 const discord = require("discord.js");
 
 
-
 class täglichCommand extends cmd.Command
 {
     constructor(client)
