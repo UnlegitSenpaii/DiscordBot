@@ -78,8 +78,6 @@ bot.on("message", function(message){
         }
         fs.writeFile("./Storage/savedData.json", JSON.stringify(savedData, null, 4));
     }
-
-
     //chatfilter end
     //Events
     let userData = JSON.parse(fs.readFileSync("Storage/userData.json", "utf8"));
@@ -94,11 +92,19 @@ bot.on("message", function(message){
         if(err)
         console.log("An error accured while trying to add a User to userData!")
     });
+
+    
+    var income = Math.floor(Math.random() * 10000);
+    userData[message.author + message.guild].money += income;
+
+
+ 
+
     if (daily)
     {   //OWO
-        if(userData[message.author + message.guild].lastDaily != moment().format("L"))
+        if(userData[message.author + message.guild].lastDaily != moment().format("LT"))
         {
-            userData[message.author + message.guild].lastDaily = moment().format("L");
+            userData[message.author + message.guild].lastDaily = moment().format("LT");
             userData[message.author + message.guild].money += 500;
             dailyreward = true;
         }
