@@ -103,7 +103,7 @@ bot.on("message", function(message){
             userData[message.author + message.guild].money += 500;
             dailyreward = true;
         }
-        else
+     if(userData[message.author + message.guild].lastDaily = moment().format("LT"))
         {
             dailyreward = false
         }
