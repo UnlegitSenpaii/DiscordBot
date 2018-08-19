@@ -94,8 +94,7 @@ bot.on("message", function(message){
     });
 
     
-    var income = Math.floor(Math.random() * 10000);
-    userData[message.author + message.guild].money += income;
+    userData[message.author + message.guild].money++;
 
       if(userData[message.author + message.guild].lastDaily != moment().format("LT"))
         {
