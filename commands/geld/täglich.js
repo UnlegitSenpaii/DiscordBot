@@ -17,6 +17,7 @@ class täglichCommand extends cmd.Command
     }
     async run(message, args)
     {
+        daily = true;
         if(dailyreward == true)
         {
             var daily = new discord.RichEmbed()

@@ -10,13 +10,14 @@ let savedData = require("./Storage/savedData.json")
 bot.registry.registerGroup("musik", "Musik");
 bot.registry.registerGroup("simple", "Simple");
 bot.registry.registerGroup("geld", "Geld");
+//bot.registry.registerGroup("abstimmung", "Abstimmung");
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname+ "/commands");
 
 global.messagesinceonline = 0;
 global.dailyreward = false;
 global.disablechat = false;
-global.daily = true;
+global.daily = false;
 global.servers = {};
 global.lastmessageuser = 0;
 global.lastmessage = 0;
@@ -153,6 +154,23 @@ bot.on("message", function(message){
         }
 });
 
+
+if(daily)
+{
+      if(userData[message.author + message.guild].lastDaily != moment().format("LT"))
+        {
+            userData[message.author + message.guild].lastDaily = moment().format("LT");
+            userData[message.author + message.guild].money += 500;
+            dailyreward = true;
+        }
+     if(userData[message.author + message.guild].lastDaily = moment().format("LT"))
+        {
+            dailyreward = false
+        }
+}
+
+
+
 bot.on("ready", function(){
     console.log("------------------------------------------------------------");
     console.log("                       Bot started!");
@@ -168,7 +186,7 @@ bot.on("ready", function(){
         bot.user.setActivity(status);
     }, 10000)
     bot.user.setStatus("Online");
-
+    client.guilds.first().channels.first().send("Bot erfolgreich gestartet!");
 });
 //process.env.BOT_TOKEN
 bot.login(process.env.BOT_TOKEN);   //immer auf der letzten zeile!
