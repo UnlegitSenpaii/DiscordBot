@@ -151,6 +151,7 @@ bot.on("message", function(message){
             .addField("Du hast deine tägliche Belohnung schon abgeholt!")
             .setTimestamp()
             message.channel.send(dailyfalse);*/
+            
         }
 });
 
