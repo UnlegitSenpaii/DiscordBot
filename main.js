@@ -186,7 +186,7 @@ bot.on("ready", function(){
         bot.user.setActivity(status);
     }, 10000)
     bot.user.setStatus("Online");
-    client.guilds.first().channels.first().send("Bot erfolgreich gestartet!");
+    bot.guilds.first().channels.first().send("Bot erfolgreich gestartet!");
 });
 //process.env.BOT_TOKEN
 bot.login(process.env.BOT_TOKEN);   //immer auf der letzten zeile!
