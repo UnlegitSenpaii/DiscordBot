@@ -114,7 +114,7 @@ bot.on("message", function(message){
             message.author.send("`The Chat is currently disabled!`")
         
     }
-
+/*
     if(message.content = "Ich bin Gott!"){
         if (message.author == "<@223876496291266560>")//senpaii
         {
@@ -144,7 +144,7 @@ bot.on("message", function(message){
             message.channel.send("`Ööm nein?`")
             message.channel.send("`Soll ich den Tierarzt rufen, weil du soetwas behauptest?`")
         }
-    }
+    }*/
     var chancewuff = Math.floor(Math.random() * 10);
 
     if(chancewuff == 5)
